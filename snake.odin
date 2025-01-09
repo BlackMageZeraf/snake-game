@@ -8,9 +8,11 @@ HEIGHTGAMEWINDOW :: 500
 FPS :: 144
 
 PLAYERHEIGHT :: 32
-PLAYERRADIUS :: 16
+PLAYERRADIUS :: 32
 
 PLAYERSPEED :: 200
+
+BACKGROUND_COLOR :: rl.Color{50, 50, 50, 255}
 
 STARTINGPOINT :: rl.Vector2{0, 0}
 
@@ -23,7 +25,7 @@ main :: proc() {
 	for !rl.WindowShouldClose() {
 		rl.BeginDrawing()
 
-		rl.ClearBackground(rl.BLANK)
+		rl.ClearBackground(BACKGROUND_COLOR)
 		if rl.IsKeyDown(.A) || rl.IsKeyDown(.LEFT) {
 			player_pos.x -= PLAYERSPEED * rl.GetFrameTime()
 		}
@@ -32,7 +34,7 @@ main :: proc() {
 			player_pos.x += PLAYERSPEED * rl.GetFrameTime()
 		}
 
-		rl.DrawRectangleV(player_pos, {PLAYERRADIUS, PLAYERHEIGHT}, rl.GREEN)
+		rl.DrawRectangleV(player_pos, {PLAYERRADIUS, PLAYERHEIGHT}, rl.WHITE)
 
 		rl.EndDrawing()
 	}
