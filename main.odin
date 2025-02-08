@@ -20,8 +20,8 @@ BACKGROUND_COLOR :: rl.Color{50, 50, 50, 255}
 STARTINGPOINT :: rl.Vector2{0, 0}
 
 main :: proc() {
-	rl.SetTargetFPS(FPS)
-	rl.InitWindow(WIDTHGAMEWINDOW, HEIGHTGAMEWINDOW, "snake-game")
+	// rl.SetTargetFPS(FPS)
+	rl.InitWindow(WIDTHGAMEWINDOW, HEIGHTGAMEWINDOW, "My First Game")
 
 
 	player_pos := STARTINGPOINT
@@ -31,6 +31,8 @@ main :: proc() {
 		rl.BeginDrawing()
 
 		rl.ClearBackground(BACKGROUND_COLOR)
+
+		rl.DrawFPS(5, 5)
 
 		if rl.IsKeyDown(.A) || rl.IsKeyDown(.LEFT) {
 			player_vel.x = -PLAYERSPEED
